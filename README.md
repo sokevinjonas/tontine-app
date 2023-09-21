@@ -3,13 +3,14 @@
 Bienvenue dans le projet GestionTontine, développé avec amour par JonasDev, votre développeur web transparent.
 
 ## Description du Projet
-GestionTontine est une application web puissante et flexible conçue pour simplifier la gestion des tontines, un modèle de financement populaire dans de nombreuses communautés. Notre application offre les fonctionnalités suivantes :
+    GestionTontine est une application web puissante et flexible conçue pour simplifier la gestion des tontines, un modèle de financement populaire dans de nombreuses communautés. Notre application offre les fonctionnalités suivantes :
 
-    - Création de Tontine
-        Permet aux utilisateurs de créer une nouvelle tontine en spécifiant des détails tels que le nom, la description, la période de paiement, la date de début, etc.
-    - Gestion des Participants
+1. Création de Tontine
+   
+  Permet aux utilisateurs de créer une nouvelle tontine en spécifiant des détails tels que le nom, la description, la période de paiement, la date de début, etc.
+    2.  Gestion des Participants
         Offre la possibilité d'ajouter des participants à une tontine en enregistrant leurs informations telles que le nom, le prénom, le numéro de téléphone, la ville, le         quartier, et le type de document d'identification (par exemple, CNIB, passeport, permis).
-    - Génération de Gestion de Tontine
+    3 . Génération de Gestion de Tontine
         Automatise la gestion de la tontine en générant des listes de paiement pour chaque participant en fonction de la période de paiement choisie (jour, semaine, mois).
         Les participants peuvent voir leurs paiements à effectuer, leurs paiements effectués et les dates prévues de paiement.
         L'application tient également compte des retards de paiement et envoie des rappels automatiques.
