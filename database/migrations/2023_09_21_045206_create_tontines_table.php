@@ -26,7 +26,6 @@ return new class extends Migration
                 '21', '22', '23','24','25','26','27','28','29','30','31'
             ]);
             $table->enum('status', ['1', '2']);
-            $table->string('date_fin');
             $table->foreignIdFor(User::class , 'user_id');
             $table->timestamps();
         });

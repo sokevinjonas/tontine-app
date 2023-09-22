@@ -11,6 +11,7 @@
 		<!-- Theme style -->
 		<link rel="stylesheet" href="{{asset('assets/css/adminlte.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+		@yield('customCss')
 	</head>
 	<body class="hold-transition sidebar-mini">
 		<!-- Site wrapper -->
@@ -25,7 +26,7 @@
 			<!-- /.content-wrapper -->
 			<footer class="main-footer">
 				
-				<strong>Copyright &copy; 2014-2022 AmazingShop All rights reserved.
+				<strong>Droits d'auteur © 2023-2024 Tous droits réservés par <a href="https://github.com/jonasdevpro"> JonasDePro <i class="fab fa-github"> </i></a></strong>
 			</footer>
 			
 		</div>

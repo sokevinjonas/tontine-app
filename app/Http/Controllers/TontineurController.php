@@ -11,8 +11,9 @@ use App\Http\Requests\StoretontineurRequest;
 class TontineurController extends Controller
 {
     public function index()
-    {
-        return view('dashboard.tontineur.index');
+    {   
+        $tontineurs = Tontineur::latest('created_at')->paginate(10);
+        return view('dashboard.tontineur.index', compact('tontineurs'));
     }
 
     public function create()
@@ -30,16 +31,34 @@ class TontineurController extends Controller
         // Créer une instance de Tontineur avec les données validées
         $tontineur = new Tontineur($validatedData);
         
-        // Enregistrer les fichiers téléchargés s'ils existent
         if ($request->hasFile('imageRecto')) {
-            $imageRectoPath = $request->file('imageRecto')->store('public/documentIdUser');
+            // Obtenez le fichier téléchargé pour 'imageRecto'
+            $imageRectoFile = $request->file('imageRecto');
+            
+            // Générez le chemin de destination en utilisant le nom d'origine du fichier
+            $imageRectoPath = 'public/documentIdUser/' . $imageRectoFile->getClientOriginalName();
+            
+            // Utilisez storeAs pour déplacer et renommer le fichier dans le répertoire de stockage spécifié
+            $imageRectoFile->storeAs('public/documentIdUser', $imageRectoFile->getClientOriginalName());
+            
+            // Mettez à jour le champ 'imageRecto' de l'objet $tontineur avec le chemin du fichier enregistré
             $tontineur->imageRecto = $imageRectoPath;
         }
-
+        
         if ($request->hasFile('imageVerso')) {
-            $imageVersoPath = $request->file('imageVerso')->store('public/documentIdUser');
+            // Obtenez le fichier téléchargé pour 'imageVerso'
+            $imageVersoFile = $request->file('imageVerso');
+            
+            // Générez le chemin de destination en utilisant le nom d'origine du fichier
+            $imageVersoPath = 'public/documentIdUser/' . $imageVersoFile->getClientOriginalName();
+            
+            // Utilisez storeAs pour déplacer et renommer le fichier dans le répertoire de stockage spécifié
+            $imageVersoFile->storeAs('public/documentIdUser', $imageVersoFile->getClientOriginalName());
+            
+            // Mettez à jour le champ 'imageVerso' de l'objet $tontineur avec le chemin du fichier enregistré
             $tontineur->imageVerso = $imageVersoPath;
         }
+        
 
         // Ajouter le matricule et l'ID de l'utilisateur connecté
         $tontineur->matricule = $matri;
@@ -48,7 +67,7 @@ class TontineurController extends Controller
         try {
             // Enregistrer le nouvel enregistrement Tontineur
             $tontineur->save();
-            dd($tontineur);
+            // dd($tontineur);
 
             // Redirection en cas de succès
             return redirect()->route('tontineurs.index')->with('success', 'Participant créé avec succès.');

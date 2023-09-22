@@ -10,7 +10,7 @@
             <div class="container-fluid my-2">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tontine</h1>
+                        <h1>Ma Tontine</h1>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="{{route('tontine.create')}}" class="btn btn-primary">Nouvelle Tontine</a>
@@ -54,7 +54,7 @@
                                 <tr>
                                     <td>
                                         <a href="">
-                                            <b class="text-primary">Visualiser</b>
+                                            <b class="text-primary">Adhérer </b>
                                         </a>
                                     </td>
                                     <td>{{ $tontine->libeler }}</td>

@@ -42,40 +42,35 @@
                             <thead>
                                 <tr>
                                     <th>Action</th>
-                                    <th>Nom</th>
-                                    <th>Nombre Adérants</th>
-                                    <th>Date de paie</th>
-                                    <th>Montant</th>
-                                    <th>Description</th>
+                                    <th>Nom & Prenom (s)</th>
+                                    <th>Téléphone</th>
+                                    <th>Ville / Quartier</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse ($tontines as $tontine ) --}}
+                                @forelse ($tontineurs as $tontineur )
                                 <tr>
                                     <td>
-                                        <a href="">
-                                            <b class="text-primary">Visualiser</b>
+                                        <a href="" class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                                              </svg>
                                         </a>
                                     </td>
-                                    {{-- <td>{{ $tontine->libeler }}</td> --}}
-                                    <td>qwee<td>
+                                    <td>{{ $tontineur->nom . ' '. $tontineur->prenom }}</td>
                                     <td>
-                                        {{-- 0 / <b>{{$tontine->limite_participant}}</b> --}}
-                                        0 / <b>0<b>
+                                         <b> {{ $tontineur->tel_1 }} </b>
                                     </td>
-                                    {{-- <td>Chaque {{ $tontine->date_paiment }} / {{ $tontine->periode_paiment }}</td> --}}
-                                    <td>0</td>
-                                    {{-- <td>{{ $tontine->montant_participant}} CFA</td> --}}
-                                    <td>500 CFA</td>
-                                    {{-- <td>{{ substr($tontine->description, 0, 25) }}</td> --}}
-                                    <td>sadfgS</td>
+                                    <td>
+                                        {{ $tontineur->ville_quartier }}
+                                    </td>
                                 </tr>
                             </tbody>
-                            {{-- @empty
+                            @empty
                                <div class="alert alert-warning">
                                 Aucune tontine a ete ajouter    
                             </div>     
-                            @endforelse --}}
+                            @endforelse
                         </table>										
                     </div>
                     <div class="card-footer clearfix">
